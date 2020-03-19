@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using static ITEA_Collections.Common.Extensions;
 using ITEA_Collections.Common;
 
 namespace ITEA_Collections.Usings
@@ -16,37 +17,72 @@ namespace ITEA_Collections.Usings
 
         public void Add(object ts)
         {
-            throw new NotImplementedException();
+            if (ts is null)
+                throw new Exception("Value is NULL!");
+            else
+                List.Add(ts.ToString());
         }
 
         public void AddMany(object[] ts)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            if (ts is null)
+                ToConsole($"Array is null!", ConsoleColor.Red);
+            else
+            {
+                for (int i = 0; i < ts.Length; i++)
+                {
+                    Add(ts[i]);
+                }
+            }
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            List.Clear();
         }
 
         public object[] GetAll()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return List.ToArray();
         }
 
         public object GetByID(int index)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            try
+            {
+                return List[index];
+            }
+            catch (Exception)
+            {
+                ToConsole($"No element with index: {index}", ConsoleColor.Red);
+                return null;
+            }
         }
 
         public void RemoveByID(int index)
         {
-            throw new NotImplementedException();
+            try
+            {
+                List.RemoveAt(index);
+                ToConsole($"Successfully removed #{index}", ConsoleColor.DarkYellow);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                ToConsole($"No element with index: {index}", ConsoleColor.Red);
+            }
         }
 
         public void ShowAll()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < this.List.Count; i++)
+            {
+                ToConsole($"index i: {this.List[i]}", ConsoleColor.Cyan);
+            }
         }
+
     }
 }
