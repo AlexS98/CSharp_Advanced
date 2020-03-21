@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-
+using System.Linq;
 using ITEA_Collections.CustomCollections;
 using ITEA_Collections.GenericLinkedList;
+using ITEA_Collections.Generics;
+using ITEA_Collections.Generics.Testing;
 using static ITEA_Collections.Common.Extensions;
 
 namespace ITEA_Collections
@@ -13,6 +15,7 @@ namespace ITEA_Collections
     {
         static void Main(string[] args)
         {
+            /*
             #region Lesson
             string[] numbers = new string[] { "1", "2", "3" };
             UseCollection(numbers);
@@ -51,6 +54,13 @@ namespace ITEA_Collections
             iteaGeneric.Add("Second");
             iteaGeneric.InsertByIndex(1, "Third");
             ToConsole(iteaGeneric.ToString());
+            */
+
+            IBaseGenericCollectionUsing<string> vs = new IteaGenericCollection<string>();
+            string[] array = new string[20];
+            for (int i = 0; i < array.Length; i++)
+                array[i] = i.ToString();
+            BaseGenericUsingTest.Execute(ref vs, array);
         }
 
         static void UseCollection(object[] objects)
