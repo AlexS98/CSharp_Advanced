@@ -21,7 +21,12 @@ namespace ITEA_Collections.Usings
 
         public void AddMany(object[] ts)
         {
-            throw new NotImplementedException();
+            string[] str = new string[ts.Length];
+            for (int i = 0; i < ts.Length; i++)
+            {
+                str[i] = (string)ts[i];
+            }
+            List.AddRange(str);
         }
 
         public void Clear()

@@ -33,6 +33,10 @@ namespace ITEA_Collections
             IBaseCollectionUsing collectionUsing = new ArrayListUsing();
             BaseUsingTest.Execute(ref collectionUsing);
             #endregion
+
+            List<string> a1 = new List<string>();
+            new Dictionary<object, object>();
+
         }
 
         static void BaseExamples()

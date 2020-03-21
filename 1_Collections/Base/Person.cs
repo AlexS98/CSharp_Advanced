@@ -1,4 +1,6 @@
-﻿namespace ITEA_Collections.Base
+﻿using ITEA_Collections.Base;
+
+namespace ITEA_Collections
 {
     public class Person : IPerson
     {
@@ -7,9 +9,9 @@
 
         public int Q { get; set; }
 
-        public override string ToString()
-        {
-            return $"{Name}: {Age}";
-        }
+        //public override string ToString()
+        //{
+        //    return $"{Name}: {Age}";
+        //}
     }
 }
