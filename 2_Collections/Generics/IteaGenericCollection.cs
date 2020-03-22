@@ -77,9 +77,27 @@ namespace ITEA_Collections.Generics
             //throw new NotImplementedException();
             if (index < collection.Length)
             {
-                List<T> temp = collection.ToList();
+                /*List<T> temp = collection.ToList();
                 temp.RemoveAt(index);
-                collection = temp.ToArray();
+                collection = temp.ToArray();*/
+
+                T[] temp = new T[collection.Length - 1];
+                int j = -1;
+                for (int i = 0; i < collection.Length; i++)
+                {
+                    if (i != index)
+                    {
+                        if (j < 0)
+                        {
+                            j++;
+                        }
+                        temp[j] = collection[i];
+                    }
+                    else
+                        j--;
+                    j++;
+                }
+                collection = temp;
             }
             else
                 throw new IndexOutOfRangeException();
