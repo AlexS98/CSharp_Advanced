@@ -116,14 +116,11 @@ namespace ITEA_Collections.Generics
         #endregion
 
         #region IEnumerable
+
         public IEnumerator<T> GetEnumerator()
         {
             //throw new NotImplementedException();
-            foreach (var item in collection)
-            {
-                if(item != null)
-                    yield return item;
-            }
+            return new IteaGenericEnumerator<T>(collection);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
